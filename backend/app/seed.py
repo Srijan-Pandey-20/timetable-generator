@@ -18,7 +18,7 @@ def seed_demo_data() -> None:
                     description="Repeated authentication failures and suspicious access",
                     introduction="A suspicious account compromise was detected.",
                     initial_alert="Multiple failed logins followed by a successful sign-in from an unfamiliar IP.",
-                    metadata={"category": "identity"},
+                    scenario_metadata={"category": "identity"},
                     evidence={"primary": ["repeated failed logins", "suspicious login"]},
                     decisions={"options": ["investigate", "disable-account", "block-source"]},
                     event_stream={"events": 5},
@@ -30,7 +30,7 @@ def seed_demo_data() -> None:
                     description="Employee clicked a malicious-looking email link.",
                     introduction="A malicious email was interacting with a user account.",
                     initial_alert="Unusual authentication followed a spoofed email click.",
-                    metadata={"category": "phishing"},
+                    scenario_metadata={"category": "phishing"},
                     evidence={"primary": ["email lure", "suspicious portal"]},
                     decisions={"options": ["investigate", "reset-password", "mark-suspicious"]},
                     event_stream={"events": 4},
@@ -64,7 +64,7 @@ def seed_demo_data() -> None:
                 evidence_discovered=7,
                 systems_affected=3,
                 estimated_impact="Low to moderate simulated impact",
-                metadata={"completed": True},
+                session_metadata={"completed": True},
             )
             db.add(sample)
             db.flush()

@@ -55,7 +55,7 @@ class Scenario(Base):
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
     introduction: Mapped[str | None] = mapped_column(Text, nullable=True)
     initial_alert: Mapped[str | None] = mapped_column(Text, nullable=True)
-    metadata: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    scenario_metadata: Mapped[dict | None] = mapped_column("metadata", JSON, nullable=True)
     evidence: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     decisions: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     event_stream: Mapped[dict | None] = mapped_column(JSON, nullable=True)
@@ -101,7 +101,7 @@ class SimulationSession(Base):
     evidence_discovered: Mapped[int] = mapped_column(Integer, default=0)
     systems_affected: Mapped[int] = mapped_column(Integer, default=0)
     estimated_impact: Mapped[str | None] = mapped_column(String(255), nullable=True)
-    metadata: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    session_metadata: Mapped[dict | None] = mapped_column("metadata", JSON, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
